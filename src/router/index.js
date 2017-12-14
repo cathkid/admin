@@ -14,7 +14,10 @@ export default new Router({
        children: [
             {
                 path: "nav1",
-                component: nav1
+                component: nav1,
+                meta: {
+                  requiresAuth: true,
+                }
             } 
         ]
     },
@@ -22,6 +25,23 @@ export default new Router({
     	path: '/login',
       name: 'login',
       component: login
+    },
+    {
+      path: '/',
+      name: 'frame',
+      component: frame,
+      meta: {
+        requiresAuth: true,
+      },
+      children: [
+        {
+          path: "nav1",
+          component: nav1,
+          meta: {
+            requiresAuth: true,
+          }
+        }
+      ]
     }
   ]
 })

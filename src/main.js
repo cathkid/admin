@@ -23,6 +23,20 @@ new Vue({
   }
 })
 
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+  if (!auth.loggedIn()) {
+    next({
+      path: '/login',
+      query: { redirect: to.fullPath }//把要跳转的地址作为参数传到下一步
+    })
+  }else{
+    next()
+  }
+}else{
+  next() // 确保一定要调用 next()
+}
+})
 
 Vue.component('navBox', {
   // 选项

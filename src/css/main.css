@@ -112,6 +112,7 @@
 }
 .system_box li{
 	border-bottom: 1px solid #eee;
+	height: 40px;
 	line-height: 40px;
 }
 .top_menu{

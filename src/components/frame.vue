@@ -11,7 +11,7 @@
 			  <ul v-if="system_status" class="system_box">
 			  	 <transition name="el-zoom-in-top">
 				  	 <li>修改密码</li>
-				  	 <li>注销登录</li>
+				  	 <li @click="unclick">注销登录</li>
 			  	 </transition>
 			  </ul>
 			  
@@ -21,8 +21,8 @@
 		    	 		<div class="menu-title" @click="showNav">基本操作  <i class="float-right " :class="navClassIcon"></i> </div>
 		    	 		<transition name="el-zoom-in-top">
 			    	 		<ul v-if="navStatus">
-			    	 			<li @click="router_path('/frame/nav1')">生成列表</li>
-			    	 			<li @click="router_path('/frame/nav1')">生成列表</li>
+			    	 			<li @click="router_path('/')">主页</li>
+			    	 			<li @click="router_path('/login')">登陆页</li>
 			    	 			<li @click="router_path('/frame/nav1')">生成列表</li>
 			    	 		</ul>
 		    	 		</transition>

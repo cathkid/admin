@@ -30,9 +30,9 @@
       return {
         tableData: [],
         currentPage:1, 
- 				pagesize:10, 
- 				pagetotal:100,
- 				loading:false,
+        pagesize:10,
+        pagetotal:100,
+        loading:false,
       }
     },
     methods:{

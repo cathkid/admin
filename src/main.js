@@ -19,24 +19,37 @@ new Vue({
   router,
   template: '<App/>',
   components: { App },
+  methods:{
+    checkLogin(){
+      if(!localStorage.login){
+        this.$router.push('/login');
+      }else{
+        var _this = this ;
+        var params = new URLSearchParams();
+        params.append('status', 'checklogin');
+        params.append('username',localStorage.login);
+        axios.post('/data/admindata.php',params)
+          .then(function (response) {
+            if(response.data.code != '0'){
+
+            }else{
+              alert('验证登陆失败!');
+              _this.$router.push('/login');
+            }
+          })
+      }
+    }
+  },
+  created() {
+    this.checkLogin();
+  },
   mounted:function(){
-  }
+  },
+  watch:{
+    "$route" : 'checkLogin'
+  },
 })
 
-router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requiresAuth)) {
-  if (!auth.loggedIn()) {
-    next({
-      path: '/login',
-      query: { redirect: to.fullPath }//把要跳转的地址作为参数传到下一步
-    })
-  }else{
-    next()
-  }
-}else{
-  next() // 确保一定要调用 next()
-}
-})
 
 Vue.component('navBox', {
   // 选项

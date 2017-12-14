@@ -16,11 +16,30 @@
   	name:'login',
     data() {
       return {
+            input_name:null,
+            input_password:null
       }
     },
     methods:{
     	login:function(){
-    		
+    	    if(this.input_name ==''|| this.input_password ==''){
+    	           alert('账号密码不能为空！');
+    	           return false;
+    	    }
+    	     var _this = this ;
+    		 var params = new URLSearchParams();
+             params.append('status', 'login');
+             params.append('username',this.input_name);
+             params.append('password',this.input_password);
+             axios.post('/data/admindata.php',params)
+          .then(function (response) {
+                if(response.data.code != '0'){
+                      localStorage.login = response.data.username;
+                      _this.$router.push('/frame/nav1');
+                }else{
+                       alert('登陆失败!');
+                }
+          })
     	}
     },
     mounted:function(){

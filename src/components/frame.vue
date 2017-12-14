@@ -16,17 +16,37 @@
 			  </ul>
 			  
 		    <div class="contents el-container el-col el-col-24">
-		    	 	<div class="nav el-col el-col-4">
-		    	 		<h5 class="nav-menu">菜单</h5>
-		    	 		<div class="menu-title" @click="showNav">基本操作  <i class="float-right " :class="navClassIcon"></i> </div>
-		    	 		<transition name="el-zoom-in-top">
-			    	 		<ul v-if="navStatus">
-			    	 			<li @click="router_path('/')">主页</li>
-			    	 			<li @click="router_path('/login')">登陆页</li>
-			    	 			<li @click="router_path('/frame/nav1')">生成列表</li>
-			    	 		</ul>
-		    	 		</transition>
-		    		</div> 
+                <div class="el-col el-col-4">
+                     <el-col :span="24">
+                        <el-menu
+                          default-active="2"
+                          class="el-menu-vertical-demo"
+                          @open="handleOpen"
+                          @close="handleClose">
+                          <el-submenu index="1">
+                            <template slot="title">
+                              <i class="el-icon-location"></i>
+                              <span>基本操作</span>
+                            </template>
+                            <el-menu-item-group>
+                              <template slot="title">信息管理</template>
+                              <el-menu-item index="1-1" @click="router_path('/frame/nav1')" >生成列表</el-menu-item>
+                              <el-menu-item index="1-2" @click="router_path('/')" >主页 </el-menu-item>
+                              <el-menu-item index="1-3" @click="router_path('/login')"> 登陆页 </el-menu-item>
+                            </el-menu-item-group>
+                          </el-submenu>
+                          <el-menu-item index="2">
+                            <i class="el-icon-menu"></i>
+                            <span slot="title">导航二</span>
+                          </el-menu-item>
+                          <el-menu-item index="3">
+                            <i class="el-icon-setting"></i>
+                            <span slot="title">导航三</span>
+                          </el-menu-item>
+                        </el-menu>
+                      </el-col>
+                    </el-row>
+                </div>
 		    		
 		    	 <div class="main el-col el-col-20">
 		    	 		 <router-view/>
@@ -34,14 +54,13 @@
 		    </div>
  		</div>
 </template>
- 
+
+
 <script>
 export default {
   name: 'frame',
   data(){
   	return {	
-  		navClassIcon:'el-icon-arrow-down',
-  		navStatus:true,
   		system_status:false
   		}
   },
@@ -49,25 +68,18 @@ export default {
   	
   },
   methods:{
-  	showNav:function(){
-  		if(this.navClassIcon == 'el-icon-arrow-right'){
-  				this.navClassIcon = 'el-icon-arrow-down'
-  		}else{
-  				this.navClassIcon = 'el-icon-arrow-right'
-  		}
-  		
-  		if(this.navClassIcon == 'el-icon-arrow-right'){
-  			 this.navStatus = false;
-  		}else{
-  			this.navStatus = true;
-  		}
-  	},
   	router_path:function(url){
   		this.$router.push({ path:url })
   	},
   	change_system:function(){
   		 this.system_status = !this.system_status;
-  	}
+  	},
+  	handleOpen(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
+    }
   }
 }
 </script>

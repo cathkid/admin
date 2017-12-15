@@ -8,6 +8,19 @@
 	  	 		 <el-button type="primary" @click="login">登录</el-button>
 	  	 </div>
 	  </div>
+	  
+		<el-dialog
+		  title="提示信息"
+		  :visible.sync="centerDialogVisible"
+		  width="30%"
+		  center>
+		  <span>{{message}}</span>
+		  <span slot="footer" class="dialog-footer">
+		    <el-button @click="centerDialogVisible = false">取 消</el-button>
+		    <el-button type="primary" @click="centerDialogVisible = false">确 定</el-button>
+		  </span>
+		</el-dialog>
+	  
   </div>
 </template>
  
@@ -17,13 +30,16 @@
     data() {
       return {
             input_name:null,
-            input_password:null
+            input_password:null,
+            centerDialogVisible:false,
+            message:null
       }
     },
     methods:{
     	login:function(){
     	    if(this.input_name ==''|| this.input_password ==''){
-    	           alert('账号密码不能为空！');
+    	           this.message='账号密码不能为空';
+                   this.centerDialogVisible=true;
     	           return false;
     	    }
     	     var _this = this ;
@@ -37,7 +53,8 @@
                       localStorage.login = response.data.username;
                       _this.$router.push('/frame/nav1');
                 }else{
-                       alert('登陆失败!');
+                       this.message = '登陆失败';
+                       this.centerDialogVisible=true;
                 }
           })
     	}

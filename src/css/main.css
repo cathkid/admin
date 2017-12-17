@@ -99,5 +99,11 @@
 	color:#fff;
 }
 .el-menu {
-    border-right: 1px solid #e6e6e6;
+    border-right: 1px solid #fff;
+}
+.search-box{
+	background-color: #fff;
+	height: 40px;
+	padding: 5px 0;
+	width:100%;
 }

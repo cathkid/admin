@@ -12,7 +12,7 @@ import './css/default.css'
 import './css/main.css'
 Vue.use(ElementUI)
 Vue.config.productionTip = false
-window.axios = axios;
+window.axios = axios 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -22,26 +22,25 @@ new Vue({
   methods:{
     checkLogin(){
       if(!localStorage.login){
-        this.$router.push('/login');
+        this.$router.push('/login') 
       }else{
-        var _this = this ;
-        var params = new URLSearchParams();
-        params.append('status', 'checklogin');
-        params.append('username',localStorage.login);
+        var _this = this  
+        var params = new URLSearchParams() 
+        params.append('status', 'checklogin') 
+        params.append('username',localStorage.login) 
         axios.post('/data/admindata.php',params)
           .then(function (response) {
             if(response.data.code != '0'){
 
             }else{
-              alert('验证登陆失败!');
-              _this.$router.push('/login');
+              _this.$router.push('/login') 
             }
           })
       }
     }
   },
   created() {
-    this.checkLogin();
+    this.checkLogin() 
   },
   mounted:function(){
   },

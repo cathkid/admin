@@ -38,25 +38,25 @@
     methods:{
     	login:function(){
     	    if(this.input_name ==''|| this.input_password ==''){
-    	           this.message='账号密码不能为空';
-                   this.centerDialogVisible=true;
-    	           return false;
+    	           this.message='账号密码不能为空' 
+                   this.centerDialogVisible=true 
+    	           return false 
     	    }
-    	     var _this = this ;
-    		 var params = new URLSearchParams();
-             params.append('status', 'login');
-             params.append('username',this.input_name);
-             params.append('password',this.input_password);
-             axios.post('/data/admindata.php',params)
-          .then(function (response) {
-                if(response.data.code != '0'){
-                      localStorage.login = response.data.username;
-                      _this.$router.push('/frame/nav1');
-                }else{
-                       this.message = '登陆失败';
-                       this.centerDialogVisible=true;
-                }
-          })
+    	     var _this = this  
+					 var params = new URLSearchParams() 
+							 params.append('status', 'login') 
+							 params.append('username',this.input_name) 
+							 params.append('password',this.input_password) 
+							 axios.post('/data/admindata.php',params)
+						.then(function (response) {
+									if(response.data.code != '0'){
+												localStorage.login = response.data.username 
+												_this.$router.push('/frame/nav1') 
+									}else{
+												_this.message = '登陆失败' 
+												_this.centerDialogVisible=true 
+									}
+						})
     	}
     },
     mounted:function(){

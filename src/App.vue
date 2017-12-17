@@ -25,9 +25,9 @@ export default {
   		}
   		
   		if(this.navClassIcon == 'el-icon-arrow-right'){
-  			 this.navStatus = false;
+  			 this.navStatus = false 
   		}else{
-  			this.navStatus = true;
+  			this.navStatus = true 
   		}
   	}
   }

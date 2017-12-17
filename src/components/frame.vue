@@ -4,12 +4,12 @@
  				<div class="header el-col el-col-24">
  				<!-- logo  -->	
     			<div class="logo el-col el-col-8">后台管理系统</div>
-    			<div class= "top_menu el-col el-col-12"></div>
-    			<div class= "system_btn el-col el-col-4" >
+    			<div class= "top_menu el-col el-col-10"></div>
+    			<div class= "system_btn el-col el-col-6" >
     			<!-- 下拉菜单  -->	
     				<el-dropdown  trigger="click"  @command="handleCommand" >
 					      <span class="el-dropdown-link">
-					        	操作中心<i class="el-icon-arrow-down el-icon--right"></i>
+					        	{{username}},操作中心<i class="el-icon-arrow-down el-icon--right"></i>
 					      </span>
 					      <el-dropdown-menu slot="dropdown">
 					        <el-dropdown-item  command="0">注销</el-dropdown-item>
@@ -34,7 +34,6 @@
                               <span>基本操作</span>
                             </template>
                             <el-menu-item-group>
-                              <template slot="title">信息管理</template>
                               <el-menu-item index="1-1" @click="router_path('/frame/nav1')" >生成列表</el-menu-item>
                               <el-menu-item index="1-2" @click="router_path('/')" >主页 </el-menu-item>
                               <el-menu-item index="1-3" @click="router_path('/login')"> 登陆页 </el-menu-item>
@@ -91,7 +90,8 @@
 export default {
   name: 'frame',
   data(){
-  	return {	
+  	return {
+  	  username:null,
   		system_status:false,
   		dialogFormVisible:false,
   		newpass:null,
@@ -100,42 +100,42 @@ export default {
   		}
   },
   mounted(){
-  	
+  	this.username = localStorage.login
   },
   methods:{
   	router_path:function(url){
   		this.$router.push({ path:url })
   	},
   	handleOpen(key, keyPath) {
-      console.log(key, keyPath);
+      console.log(key, keyPath)
     },
     handleClose(key, keyPath) {
-      console.log(key, keyPath);
+      console.log(key, keyPath)
     },
     unlogin:function(){
-    	localStorage.login = '';
-    	this.$router.push('/login');
+    	localStorage.login = ''
+    	this.$router.push('/login')
     },
     editpass:function(){
-    	this.dialogFormVisible = true ;
+    	this.dialogFormVisible = true
     },
     sureEditPass:function(){
     	if(this.newpass == null){
-    		this.message = '密码不得为空！';
-    		this.centerDialogVisible = true;
+    		this.message = '密码不得为空！'
+    		this.centerDialogVisible = true
     		return;
     		
     	}
-    	this.message = '密码修改成功！';
-    	this.centerDialogVisible = true;
-    	this.dialogFormVisible = false ;
+    	this.message = '密码修改成功！'
+    	this.centerDialogVisible = true
+    	this.dialogFormVisible = false
     },
     handleCommand(command) {
         if(command == '0'){
-        	this.unlogin();
+        	this.unlogin()
         }
         if(command == '1'){
-        	this.editpass();
+        	this.editpass()
         }
     }
   }

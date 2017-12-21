@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import login from '@/login'
 import frame from '@/components/frame'
 import nav1 from '@/components/nav1'
+import nav2 from '@/components/nav2'
 Vue.use(Router)
 
 export default new Router({
@@ -18,8 +19,15 @@ export default new Router({
                 meta: {
                   requiresAuth: true,
                 }
-            } 
-        ]
+            },
+           {
+             path: "nav2",
+             component: nav2,
+             meta: {
+               requiresAuth: true,
+             }
+           }
+       ]
     },
     {
     	path: '/login',

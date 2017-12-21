@@ -1,9 +1,9 @@
 <template>
   <div align="center">
-  		<h5 class="table-menu">用户生成列表</h5>
+  		<h5 class="table-menu">用户列表</h5>
 		  <div class="search-box">
 				 <div class="el-col el-col-4">
-						 <el-input v-model="search" placeholder="请输入ip查询"></el-input>
+						 <el-input v-model="search" placeholder="请输入账号查询"></el-input>
 				 </div>
 				<div class="el-col el-col-2">
 				 		<el-button type="primary" @click="searchIp"> 搜 索 </el-button>
@@ -11,8 +11,7 @@
 			</div>
   	  <el-table  v-loading="loading"  :data="tableData" border style="width: 100% overflow: hidden ">
 		    <el-table-column prop="id" label="用户id" > </el-table-column>
-		    <el-table-column prop="ip" label="用户ip" > </el-table-column>
-		    <el-table-column  prop="num" label="数量"> </el-table-column>
+		    <el-table-column prop="username" label="账号" > </el-table-column>
 		    <el-table-column  prop="time" label="时间"> </el-table-column>
 		    <el-table-column  label="操作"> 
 		    	 <template slot-scope="scope">
@@ -47,7 +46,7 @@
     methods:{
     	 getinfo:function(){
     	 	 var params = new URLSearchParams() 
-						 params.append('status', 'getinfo') 
+						 params.append('status', 'getuser')
 				 var _this = this 		 
 				 _this.loading=true 
     	 	 axios.post('/data/admindata.php',params)
@@ -66,7 +65,7 @@
 			 var _this = this 	
 			 _this.loading=true 
 			 var params = new URLSearchParams() 
-					 params.append('status', 'page') 
+					 params.append('status', 'pageuser')
 					 params.append('page', currentPage) 
 			 		 axios.post('/data/admindata.php',params)
 				  .then(function (response) {
@@ -89,8 +88,8 @@
 						return;
 				}
         var params = new URLSearchParams() 
-        params.append('status', 'searchIp') 
-        params.append('ip',this.search) 
+        params.append('status', 'searchUser')
+        params.append('username',this.search)
         var _this = this 
         _this.loading=true 
         axios.post('/data/admindata.php',params)

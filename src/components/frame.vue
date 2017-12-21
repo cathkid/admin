@@ -35,18 +35,13 @@
                             </template>
                             <el-menu-item-group>
                               <el-menu-item index="1-1" @click="router_path('/frame/nav1')" >生成列表</el-menu-item>
-                              <el-menu-item index="1-2" @click="router_path('/')" >主页 </el-menu-item>
-                              <el-menu-item index="1-3" @click="router_path('/login')"> 登陆页 </el-menu-item>
+                              <el-menu-item index="1-2" @click="router_path('/frame/nav2')" >用户列表 </el-menu-item>
                             </el-menu-item-group>
                           </el-submenu>
-                          <el-menu-item index="2">
+<!--                          <el-menu-item index="2">
                             <i class="el-icon-menu"></i>
                             <span slot="title">导航二</span>
-                          </el-menu-item>
-                          <el-menu-item index="3">
-                            <i class="el-icon-setting"></i>
-                            <span slot="title">导航三</span>
-                          </el-menu-item>
+                          </el-menu-item>-->
                         </el-menu>
                       </el-col>
                     </el-row>
@@ -96,7 +91,7 @@ export default {
   		dialogFormVisible:false,
   		newpass:null,
   		centerDialogVisible:false,
-  		message:null
+  		message:null,
   		}
   },
   mounted(){

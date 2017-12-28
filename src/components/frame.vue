@@ -12,6 +12,7 @@
 					        	{{username}},操作中心<i class="el-icon-arrow-down el-icon--right"></i>
 					      </span>
 					      <el-dropdown-menu slot="dropdown">
+									<el-dropdown-item   ><a href="/">前端首页</a></el-dropdown-item>
 					        <el-dropdown-item  command="0">注销</el-dropdown-item>
 					        <el-dropdown-item  command="1">修改密码</el-dropdown-item>
 					      </el-dropdown-menu>
@@ -26,6 +27,7 @@
                         <el-menu
                           default-active="2"
                           class="el-menu-vertical-demo"
+													:default-openeds="openeds"
                           @open="handleOpen"
                           @close="handleClose">
                           <el-submenu index="1">
@@ -34,7 +36,7 @@
                               <span>基本操作</span>
                             </template>
                             <el-menu-item-group>
-                              <el-menu-item index="1-1" @click="router_path('/frame/nav1')" >生成列表</el-menu-item>
+                              <el-menu-item  index="1-1" @click="router_path('/frame/nav1')" >生成列表</el-menu-item>
                               <el-menu-item index="1-2" @click="router_path('/frame/nav2')" >用户列表 </el-menu-item>
                             </el-menu-item-group>
                           </el-submenu>
@@ -92,6 +94,7 @@ export default {
   		newpass:null,
   		centerDialogVisible:false,
   		message:null,
+      openeds:['1']
   		}
   },
   mounted(){

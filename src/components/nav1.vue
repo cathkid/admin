@@ -13,6 +13,7 @@
 		    <el-table-column prop="id" label="用户id" > </el-table-column>
 		    <el-table-column prop="ip" label="用户ip" > </el-table-column>
 		    <el-table-column  prop="num" label="数量"> </el-table-column>
+		    <el-table-column  prop="username" label="用户名"> </el-table-column>
 		    <el-table-column  prop="time" label="时间"> </el-table-column>
 		    <el-table-column  label="操作"> 
 		    	 <template slot-scope="scope">
@@ -21,7 +22,7 @@
 		        </el-button>
 		      </template>
 		    </el-table-column>
-		  </el-table>
+	  </el-table>
   		
   		<div class="pagebox">
 				<el-pagination background layout="total,prev, pager, next" :total="pagetotal" :page-sizes="pagesize"  @current-change="handleCurrentChange">

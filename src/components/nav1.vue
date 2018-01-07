@@ -15,6 +15,21 @@
 		    <el-table-column  prop="num" label="数量"> </el-table-column>
 		    <el-table-column  prop="username" label="用户名"> </el-table-column>
 		    <el-table-column  prop="time" label="时间"> </el-table-column>
+				<el-table-column   label="logo">
+						<template scope="scope">
+							<img :src="scope.row.logo" width="40" height="40" />
+						</template>
+				</el-table-column>
+				<el-table-column label="数据" >
+					<template scope="scope">
+						<el-popover trigger="hover" placement="top">
+							<p> {{ scope.row.value }}</p>
+							<div slot="reference" class="name-wrapper">
+								<el-tag>生成数据</el-tag>
+							</div>
+						</el-popover>
+					</template>
+				</el-table-column>
 		    <el-table-column  label="操作"> 
 		    	 <template slot-scope="scope">
 		        <el-button @click.native.prevent="del_data(scope.$index,tableData)" type="text" size="small">

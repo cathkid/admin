@@ -1,6 +1,6 @@
 <template>
   <div align="center">
-  		<h5 class="table-menu">用户列表</h5>
+  		<h5 class="table-menu">会员充值列表</h5>
 		  <div class="search-box">
 				 <div class="el-col el-col-4">
 						 <el-input v-model="search" placeholder="请输入账号查询"></el-input>
@@ -12,9 +12,9 @@
   	  <el-table  v-loading="loading"  :data="tableData" border style="width: 100% overflow: hidden ">
 		    <el-table-column prop="id" label="用户id" > </el-table-column>
 		    <el-table-column prop="username" label="账号" > </el-table-column>
-		    <el-table-column  prop="time" label="时间"> </el-table-column>
-		    <el-table-column  prop="vip" label="会员"> </el-table-column>
-		     <el-table-column  prop="endviptime" label="会员到期时间"> </el-table-column>
+		    <el-table-column  prop="starttime" label="时间"> </el-table-column>
+		    <el-table-column  prop="money" label="购买价格"> </el-table-column>
+		    <el-table-column  prop="pro_id" label="商户id"> </el-table-column>
 		    <el-table-column  label="操作"> 
 		    	 <template slot-scope="scope">
 		        <el-button @click.native.prevent="del_data(scope.$index,tableData)" type="text" size="small">
@@ -34,7 +34,7 @@
  
 <script>
   export default {
-  	name:'nav2',
+  	name:'nav3',
     data() {
       return {
         tableData: [],
@@ -48,7 +48,7 @@
     methods:{
     	 getinfo:function(){
     	 	 var params = new URLSearchParams() 
-						 params.append('status', 'getuser')
+						 params.append('status', 'getmember')
 				 var _this = this 		 
 				 _this.loading=true 
     	 	 axios.post('/data/admindata.php',params)

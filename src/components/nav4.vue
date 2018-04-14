@@ -8,9 +8,9 @@
 			</div>
   	  <el-table  v-loading="loading"  :data="tableData"  style="width: 100%;overflow: hidden ">
 		    <el-table-column prop="countNum" label="生成总条数" > </el-table-column>
-		    <el-table-column prop="countMember" label="会员数" > </el-table-column>
+		    <el-table-column prop="countMember" label="注册人数" > </el-table-column>
 		    <el-table-column  prop="countMoney" label="会员总金额"> </el-table-column>
-				
+
 		  </el-table>
 
   </div>

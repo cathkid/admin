@@ -65,8 +65,7 @@
 			 this.currentPage = currentPage 
 			 var _this = this 	
 			 _this.loading=true 
-			 var params = new URLSearchParams() 
-					 params.append('status', 'pagebbs')
+			 var params = new URLSearchParams()
 					 params.append('page', currentPage) 
 			 		 axios.post('/data/admindata.php',params)
 				  .then(function (response) {

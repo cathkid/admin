@@ -5,6 +5,8 @@ import frame from '@/components/frame'
 import nav1 from '@/components/nav1'
 import nav2 from '@/components/nav2'
 import nav3 from '@/components/nav3'
+import nav4 from '@/components/nav4'
+import nav5 from '@/components/nav5'
 Vue.use(Router)
 
 export default new Router({
@@ -34,7 +36,21 @@ export default new Router({
              meta: {
                requiresAuth: true,
              }
+           },
+         {
+           path: "nav4",
+           component: nav4,
+           meta: {
+             requiresAuth: true,
            }
+         },
+         {
+           path: "nav5",
+           component: nav5,
+           meta: {
+             requiresAuth: true,
+           }
+         }
        ]
     },
     {

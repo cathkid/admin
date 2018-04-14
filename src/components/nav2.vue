@@ -14,7 +14,9 @@
 		    <el-table-column prop="username" label="账号" > </el-table-column>
 		    <el-table-column  prop="time" label="时间"> </el-table-column>
 		    <el-table-column  prop="vip" label="会员"> </el-table-column>
-		     <el-table-column  prop="endviptime" label="会员到期时间"> </el-table-column>
+				<el-table-column  prop="endtime" label="最后登录"> </el-table-column>
+		    <el-table-column  prop="endviptime" label="会员到期时间"> </el-table-column>
+				<el-table-column  prop="num" label="总数量"> </el-table-column>
 		    <el-table-column  label="操作"> 
 		    	 <template slot-scope="scope">
 		        <el-button @click.native.prevent="del_data(scope.$index,tableData)" type="text" size="small">

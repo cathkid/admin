@@ -17,7 +17,7 @@
       <el-table-column  prop="endtime" label="会员结束时间"> </el-table-column>
       <el-table-column  prop="money" label="购买价格"> </el-table-column>
       <el-table-column  prop="pro_id" label="商户id"> </el-table-column>
-      <el-table-column  prop="status" label="商户id"> </el-table-column>
+      <el-table-column  prop="status" label="订单状态"> </el-table-column>
       <el-table-column  label="操作">
         <template slot-scope="scope">
           <el-button @click.native.prevent="del_data(scope.$index,tableData)" type="text" size="small">
@@ -93,7 +93,7 @@
           return;
         }
         var params = new URLSearchParams()
-        params.append('status', 'searchUser')
+        params.append('status', 'searchmember')
         params.append('username',this.search)
         var _this = this
         _this.loading=true

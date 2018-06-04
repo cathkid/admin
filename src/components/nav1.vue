@@ -3,7 +3,7 @@
   		<h5 class="table-menu">用户生成列表</h5>
 		  <div class="search-box">
 				 <div class="el-col el-col-4">
-						 <el-input v-model="search" placeholder="请输入ip查询"></el-input>
+						 <el-input v-model="search" placeholder="请输入用户名查询"></el-input>
 				 </div>
 				<div class="el-col el-col-2">
 				 		<el-button type="primary" @click="searchIp"> 搜 索 </el-button>
@@ -107,7 +107,7 @@
 				}
         var params = new URLSearchParams() 
         params.append('status', 'searchIp') 
-        params.append('ip',this.search) 
+        params.append('username',this.search)
         var _this = this 
         _this.loading=true 
         axios.post('/data/admindata.php',params)

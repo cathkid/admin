@@ -21,7 +21,7 @@
 			  </div>
 			  
 		    <div class="contents el-container el-col el-col-24">
-                <div class="el-col el-col-4">
+           <div class="el-col el-col-3">
                 	 <!-- 左侧菜单  -->
                      <el-col :span="24">
                         <el-menu
@@ -52,7 +52,7 @@
                     </el-row>
                 </div>
 		    		
-		    	 <div class="main el-col el-col-20">
+		    	 <div class="main el-col el-col-21">
 		    	 		 <!-- 内容  -->
 		    	 		 <router-view/>
 		    	 </div>

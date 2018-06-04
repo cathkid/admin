@@ -10,11 +10,13 @@
         <el-button type="primary" @click="searchIp"> 搜 索 </el-button>
       </div>
     </div>
-    <el-table  v-loading="loading"  :data="tableData" border style="width: 100% overflow: hidden ">
+    <el-table  v-loading="loading"  :data="tableData" border style="width: 100% overflow: hidden ">starttime
       <el-table-column prop="id" label="用户id" > </el-table-column>
       <el-table-column prop="username" label="账号" > </el-table-column>
-      <el-table-column  prop="starttime" label="时间"> </el-table-column>
+      <el-table-column  prop="starttime" label="购买时间"> </el-table-column>
+      <el-table-column  prop="endtime" label="结束时间"> </el-table-column>
       <el-table-column  prop="money" label="购买价格"> </el-table-column>
+      <el-table-column  prop="status" label="状态"> </el-table-column>
       <el-table-column  prop="pro_id" label="商户id"> </el-table-column>
       <el-table-column  label="操作">
         <template slot-scope="scope">
@@ -91,7 +93,7 @@
           return;
         }
         var params = new URLSearchParams()
-        params.append('status', 'searchUser')
+        params.append('status', 'searchmember')
         params.append('username',this.search)
         var _this = this
         _this.loading=true

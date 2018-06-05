@@ -31,6 +31,16 @@
 						</el-popover>
 					</template>
 				</el-table-column>
+			  <el-table-column label="名称" >
+					<template scope="scope">
+						<el-popover trigger="hover" placement="top">
+							<p> {{ scope.row.imgname }}</p>
+							<div slot="reference" class="name-wrapper">
+								<el-tag>生成名称</el-tag>
+							</div>
+						</el-popover>
+					</template>
+				</el-table-column>
 		    <el-table-column  label="操作"> 
 		    	 <template slot-scope="scope">
 		        <el-button @click.native.prevent="del_data(scope.$index,tableData)" type="text" size="small">

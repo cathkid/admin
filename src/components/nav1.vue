@@ -13,9 +13,13 @@
 		    <el-table-column prop="id" label="用户id" > </el-table-column>
 		    <el-table-column prop="ip" label="用户ip" > </el-table-column>
 		    <el-table-column  prop="num" label="数量"> </el-table-column>
-				<el-table-column  prop="setname" label="设置二维码名称"> </el-table-column>
 		    <el-table-column  prop="username" label="用户名"> </el-table-column>
 		    <el-table-column  prop="time" label="时间"> </el-table-column>
+				<el-table-column  prop="ctime" label="耗时"> </el-table-column>
+				<el-table-column  prop="setname" label="设置二维码名称"> </el-table-column>
+				<el-table-column  prop="datashow" label="设置展示数据"> </el-table-column>
+				<el-table-column  prop="size" label="大小"> </el-table-column>
+				<el-table-column  prop="color" label="颜色"> </el-table-column>
 				<el-table-column   label="logo">
 						<template scope="scope">
 							<img :src="scope.row.logo" width="40" height="40" />

@@ -13,6 +13,7 @@
 		    <el-table-column prop="id" sortable  label="用户id" > </el-table-column>
 		    <el-table-column prop="username" label="账号" > </el-table-column>
 		    <el-table-column  prop="time" sortable  label="时间"> </el-table-column>
+				<el-table-column  prop="phone" sortable  label="手机"> </el-table-column>
 		    <el-table-column  prop="vip" sortable label="会员"> </el-table-column>
 				<el-table-column  prop="endtime" label="最后登录"> </el-table-column>
 		    <el-table-column  prop="endviptime" label="会员到期时间"> </el-table-column>

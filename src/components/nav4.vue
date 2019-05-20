@@ -7,9 +7,10 @@
 				 </div>
 			</div>
   	  <el-table  v-loading="loading"  :data="tableData"  style="width: 100%;overflow: hidden ">
-		    <el-table-column prop="countNum" label="生成总条数" > </el-table-column>
+		    <el-table-column  prop="countNum" label="生成总条数" > </el-table-column>
 				<el-table-column  prop="countTodayNum" label="今日生成总条数"> </el-table-column>
-		    <el-table-column prop="countMember" label="注册人数" > </el-table-column>
+				<el-table-column  prop="countMemberToday" label="今日注册人数" > </el-table-column>
+		    <el-table-column  prop="countMember" label="注册人数" > </el-table-column>
 				<el-table-column  prop="vipNum" label="VIP会员"> </el-table-column>
 				<el-table-column  prop="countMonthMoney" label="会员当月金额"> </el-table-column>
 				<el-table-column  prop="countMoney" label="会员总金额"> </el-table-column>

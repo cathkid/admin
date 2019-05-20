@@ -6,6 +6,7 @@
 
 				 </div>
 			</div>
+			
   	  <el-table  v-loading="loading"  :data="tableData"  style="width: 100%;overflow: hidden ">
 		    <el-table-column  prop="countNum" label="生成总条数" > </el-table-column>
 				<el-table-column  prop="countTodayNum" label="今日生成总条数"> </el-table-column>
@@ -35,7 +36,7 @@
 				 _this.loading=true 
     	 	 axios.post('/data/admindata.php',params)
 				  .then(function (response) {
-				  	_this.tableData = response ;
+				  	_this.tableData = response.data.info ;
 				  	_this.loading=false 
 				  })
 				  .catch(function (response) {

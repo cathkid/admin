@@ -10,7 +10,7 @@
         <el-button type="primary" @click="searchIp"> 搜 索 </el-button>
       </div>
     </div>
-    <el-table  v-loading="loading"  :data="tableData" border style="width: 100% overflow: hidden ">starttime
+    <el-table  v-loading="loading"  :data="tableData" border style="width: 100% overflow: hidden ">
       <el-table-column prop="id" label="用户id" > </el-table-column>
       <el-table-column prop="username" label="账号" > </el-table-column>
       <el-table-column  prop="starttime" label="购买时间"> </el-table-column>

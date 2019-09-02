@@ -21,8 +21,11 @@
 				<el-table-column  prop="email" sortable label="邮箱"> </el-table-column>
 		    <el-table-column  label="操作"> 
 		    	 <template slot-scope="scope">
-		        <el-button @click.native.prevent="del_data(scope.$index,tableData)" type="text" size="small">
+		        <el-button  @click.native.prevent="del_data(scope.$index,tableData)" type="success" size="small">
 		          	移除
+		        </el-button>
+		        <el-button @click.native.prevent="edit_data(scope.row.id,tableData[scope.$index])" type="success" size="small">
+		          	编辑
 		        </el-button>
 		      </template>
 		    </el-table-column>
@@ -32,6 +35,21 @@
 				<el-pagination background layout="total,prev, pager, next" :total="pagetotal" :page-sizes="pagesize"  @current-change="handleCurrentChange">
 				</el-pagination>  			
   		</div>
+  		
+  		<el-dialog title="编辑" :visible.sync="dialogFormVisible">
+			  <el-form >
+			    <el-form-item label="账号"  >
+			      <el-input v-model="guest[0].username" value="" auto-complete="off" placeholder="账号"></el-input>
+			    </el-form-item>
+		    	<el-form-item label="VIP状态"  >
+			       <el-input v-model="guest[0].vip" value="" auto-complete="off" placeholder="会员等级"></el-input>
+		    	</el-form-item>
+			  </el-form>
+			  <div slot="footer" class="dialog-footer">
+			    <el-button @click="dialogFormVisible = false">取 消</el-button>
+			    <el-button type="primary" @click="submit2(guest[0].id)">确 定</el-button>
+			  </div>
+			</el-dialog>
   		
   </div>
 </template>
@@ -46,7 +64,9 @@
         pagesize:10,
         pagetotal:100,
         loading:false,
-        search:null
+        search:null,
+        dialogFormVisible:false,
+        guest:[{ "username":'', "vip":''}],
       }
     },
     methods:{
@@ -108,7 +128,31 @@
           .catch(function (response) {
             console.log(response) 
           }) 
-			}
+			},edit_data:function(id,rows){
+		    	 console.info(rows)
+		    	 this.guest[0] = rows;
+		    	 this.dialogFormVisible = true
+	    },
+	    submit2:function(id){
+	    	var _this = this
+	    	var params = new URLSearchParams() 
+					 params.append('status', 'edit_guest')
+					 params.append('username',_this.guest[0].username)
+					 params.append('vip', _this.guest[0].vip)
+					 params.append('id',_this.guest[0].id)
+					 var _this = this 		 
+					 _this.loading=true 
+	    	 	 axios.post('../data/admindata.php',params)
+					  .then(function (response) {
+					  	alert('修改成功！');
+					  	_this.getinfo() 
+					  	_this.loading=false
+					  	_this.dialogFormVisible = false
+					  })
+					  .catch(function (response) {
+					    console.log(response) 
+					  }) 
+	    } 
     },
     mounted:function(){
     	 this.getinfo() 

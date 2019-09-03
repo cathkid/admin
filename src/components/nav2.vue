@@ -44,6 +44,11 @@
 		    	<el-form-item label="VIP状态"  >
 			       <el-input v-model="guest[0].vip" value="" auto-complete="off" placeholder="会员等级"></el-input>
 		    	</el-form-item>
+		    	<el-form-item label="VIP到期时间"  >
+		    		<div class="el-col el-col-12">
+		    			 <el-date-picker value-format="yyyy-MM-dd HH:mm:ss"  v-model="guest[0].endviptime"  type="datetime"  placeholder="选择到期时间"> </el-date-picker>
+		    		</div>
+		    	</el-form-item> 
 			  </el-form>
 			  <div slot="footer" class="dialog-footer">
 			    <el-button @click="dialogFormVisible = false">取 消</el-button>
@@ -66,7 +71,7 @@
         loading:false,
         search:null,
         dialogFormVisible:false,
-        guest:[{ "username":'', "vip":''}],
+        guest:[{ "username":'', "vip":'' , "endviptime":''}],
       }
     },
     methods:{
@@ -139,6 +144,7 @@
 					 params.append('status', 'edit_guest')
 					 params.append('username',_this.guest[0].username)
 					 params.append('vip', _this.guest[0].vip)
+					 params.append('endviptime', _this.guest[0].endviptime)
 					 params.append('id',_this.guest[0].id)
 					 var _this = this 		 
 					 _this.loading=true 

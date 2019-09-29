@@ -4,8 +4,8 @@
  				<div class="header el-col el-col-24">
  				<!-- logo  -->	
     			<div class="logo el-col el-col-8">后台管理系统</div>
-    			<div class= "top_menu el-col el-col-10"></div>
-    			<div class= "system_btn el-col el-col-6" >
+    			<div class= "top_menu el-col el-col-13"></div>
+    			<div class= "system_btn el-col el-col-3" >
     			<!-- 下拉菜单  -->	
     				<el-dropdown  trigger="click"  @command="handleCommand" >
 					      <span class="el-dropdown-link">
@@ -27,7 +27,7 @@
                         <el-menu
                           default-active="2"
                           class="el-menu-vertical-demo"
-													:default-openeds="openeds"
+						  :default-openeds="openeds"
                           @open="handleOpen"
                           @close="handleClose">
                           <el-submenu index="1">

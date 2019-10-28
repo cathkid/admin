@@ -12,6 +12,7 @@
   	  <el-table  v-loading="loading"  :data="tableData" border style="width: 100% overflow: hidden ">
 		    <el-table-column prop="id" label="用户id" > </el-table-column>
 		    <el-table-column prop="ip" label="用户ip" > </el-table-column>
+		    <el-table-column  prop="class" label="来源"> </el-table-column>
 		    <el-table-column  prop="num" label="数量"> </el-table-column>
 		    <el-table-column  prop="username" label="用户名"> </el-table-column>
 		    <el-table-column  prop="time" label="时间"> </el-table-column>

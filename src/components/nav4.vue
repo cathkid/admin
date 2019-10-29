@@ -17,6 +17,7 @@
 				<el-table-column  prop="countMonthMoney" label="会员当月金额"> </el-table-column>
 				<el-table-column  prop="countMoney" label="会员总金额"> </el-table-column>
 		  </el-table>
+		  
   </div>
 </template>
  

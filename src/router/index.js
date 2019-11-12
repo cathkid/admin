@@ -10,6 +10,7 @@ import nav5 from '@/components/nav5'
 import nav6 from '@/components/nav6'
 import nav7 from '@/components/nav7'
 import nav8 from '@/components/nav8'
+import nav9 from '@/components/nav9'
 Vue.use(Router)
 
 export default new Router({
@@ -71,6 +72,13 @@ export default new Router({
          {
            path: "nav8",
            component: nav8,
+           meta: {
+             requiresAuth: true,
+           }
+         },
+         {
+           path: "nav9",
+           component: nav9,
            meta: {
              requiresAuth: true,
            }

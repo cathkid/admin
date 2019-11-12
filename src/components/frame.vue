@@ -38,11 +38,12 @@
                             <el-menu-item-group>
 							  <el-menu-item  index="1-1" @click="router_path('/frame/nav4')" >汇总信息</el-menu-item>
                               <el-menu-item  index="1-2" @click="router_path('/frame/nav1')" >生成列表</el-menu-item>
+                              <el-menu-item  index="1-9" @click="router_path('/frame/nav9')" >活码列表</el-menu-item>
                               <el-menu-item  index="1-7" @click="router_path('/frame/nav7')" >图文码列表</el-menu-item>
                               <el-menu-item index="1-3" @click="router_path('/frame/nav2')" >用户列表 </el-menu-item>
                               <el-menu-item index="1-4" @click="router_path('/frame/nav3')" >会员充值</el-menu-item>
 							  <el-menu-item index="1-5" @click="router_path('/frame/nav5')" >咨询</el-menu-item>
-							  <el-menu-item index="1-6" @click="router_path('/frame/nav8')" >充值日志</el-menu-item>
+							  <el-menu-item index="1-8" @click="router_path('/frame/nav8')" >充值日志</el-menu-item>
 							  <el-menu-item index="1-6" @click="router_path('/frame/nav6')" >日志</el-menu-item>
                             </el-menu-item-group>
                           </el-submenu>

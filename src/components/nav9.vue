@@ -74,7 +74,7 @@
 			 var _this = this 	
 			 _this.loading=true 
 			 var params = new URLSearchParams() 
-					 params.append('status', 'page') 
+					 params.append('status', 'getactivityinfopage') 
 					 params.append('page', currentPage) 
 			 		 axios.post('/data/admindata.php',params)
 				  .then(function (response) {
@@ -97,7 +97,7 @@
 						return;
 				}
         var params = new URLSearchParams() 
-        params.append('status', 'searchIp') 
+        params.append('status', 'getactivityinfosearch') 
         params.append('username',this.search)
         var _this = this 
         _this.loading=true 

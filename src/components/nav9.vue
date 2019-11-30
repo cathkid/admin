@@ -15,6 +15,9 @@
 		    <el-table-column  prop="time" label="时间"> </el-table-column>
 		    <el-table-column  prop="value" label="数据"> </el-table-column>
 		    <el-table-column  prop="limit" label="限制"> </el-table-column>
+		    <el-table-column  prop="limitopen" label="打开方式"> </el-table-column>
+		    <el-table-column  prop="sort" label="短链接"> </el-table-column>
+		    <el-table-column  prop="scanmark" label="备注"> </el-table-column>
 		    <el-table-column  prop="accessnum" label="已扫次数"> </el-table-column>
 		    <el-table-column  prop="link" label="连接"> </el-table-column>
 				<el-table-column   label="qrcode">
